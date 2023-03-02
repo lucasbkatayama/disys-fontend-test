@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap');
+
+:root {
+  --clr-primary: #002f65;
+  --clr-grey: hsl(209, 34%, 30%);
+  --clr-grey-light: #f1f5f8;
+  --clr-white: #fff;
+  --clr-black: #222;
+  --ff-primary: 'Open Sans', sans-serif;
+  --transition: all 0.2s linear;
+  --spacing: 0.1rem;
+  --bottom-spacing: 5vh;
+  --radius: 0.25rem;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

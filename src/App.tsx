@@ -8,19 +8,21 @@ function App() {
     event.preventDefault()
     console.log(searchRef.current?.value)
   }
-
+  
   return (
-    <>
+    <div className='wrapper'>
       <header>
-        <h1>RSYS FrontEnd Test</h1>
+        <h1>DISYS - FrontEnd Test</h1>
       </header>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <input ref={searchRef} type='search' placeholder='Enter Github User' />
-        <button>Search</button>
-      </form>
-      <h3>Users:</h3>
+      <section>
+        <form onSubmit={(e) => onSubmit(e)}>
+          <input ref={searchRef} type='search' placeholder='Enter Github User' />
+          <button>Search</button>
+        </form>
+        <h3>Users:</h3>
+      </section>
       <footer></footer>
-    </>
+    </div>
   )
 }
 
