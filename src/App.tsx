@@ -1,5 +1,4 @@
-import { useState, useRef } from 'react'
-import IMAGE from './assets/react.svg'
+import { useRef } from 'react'
 import './App.css'
 import MOCK_USERS from './mock-users.json'
 
@@ -28,7 +27,7 @@ function App() {
               <img width={80} src={user.avatar_url} alt='profile' />
               <div className='card-text'>
                 <p>{user.login}</p>
-                <a href={user.html_url}>{user.html_url}</a>
+                <a target='_blank' rel='noreferrer' href={user.html_url}>{user.html_url}</a>
               </div>
             </div>
           </div>

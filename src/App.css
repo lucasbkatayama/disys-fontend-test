@@ -130,6 +130,7 @@ button:hover {
   background-color: var(--clr-white);
   cursor: pointer;
   padding: 20px;
+  min-width: 0;
 }
 
 .card:hover {
@@ -145,6 +146,12 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
+}
+
+.card-text a {
+  overflow: hidden;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
