@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  letter-spacing: var(--spacing);
+  overflow: hidden;
+}
+
+.pagination p {
+  margin: 0 10px;
+}
+
+.pagination .icons {
+  color: var(--clr-white);
+}
+
+.pagination button {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  outline: none;
+  border: none;
+  padding: 1rem;
+}
