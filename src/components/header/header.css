@@ -1,0 +1,14 @@
+.header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  margin-bottom: var(--bottom-spacing);
+}
+
+.header h1 {
+  font-size: 24px;
+}
