@@ -10,7 +10,7 @@ body {
   background-color: var(--clr-grey-light);
 }
 
-.wrapper {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -42,13 +42,8 @@ footer {
 
 section {
   padding: 0 10vw;
-  flex: 1
-}
-
-@media only screen and (max-width: 400px) {
-  section {
-    padding: 0 5vw;
-  }
+  flex: 1;
+  margin-bottom: var(--bottom-spacing);
 }
 
 form {
@@ -92,4 +87,69 @@ button {
 button:hover {
   background: var(--clr-grey-light);
   color: var(--clr-primary-1);
+}
+
+.cards-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  width: 25%;
+  padding: 0 1vw 5vh 1vw;
+}
+
+@media only screen and (max-width: 1400px) {
+  .card-container {
+    width: 33.33%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card-container {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .card-container {
+    width: 100%;
+  }
+
+  img {
+    width: 40px;
+  }
+}
+
+
+.card {
+  display: flex;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  background-color: var(--clr-white);
+  cursor: pointer;
+  padding: 20px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+img {
+  margin-right: 20px;
 }
