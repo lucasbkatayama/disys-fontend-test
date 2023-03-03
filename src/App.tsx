@@ -1,10 +1,11 @@
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
 import './App.css'
 import { Header, Search, Card, Pagination, Footer } from './components';
-import MOCK_USERS from './mock-users.json'
+import { GithubContext } from './context/github-context';
 
 function App() {
   const searchRef = useRef<HTMLInputElement>(null);
+  const githubUsers = useContext(GithubContext)
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -17,11 +18,11 @@ function App() {
       <section>
         <Search ref={searchRef} onSubmit={onSubmit} />
         <div className='cards-wrap'>
-          {MOCK_USERS.items.map((user) => (
+          {githubUsers.items.map((user) => (
             <Card {...user} />
           ))}
         </div>
-        <Pagination total={Math.ceil((MOCK_USERS.total_count / 24))} current={1} />
+        <Pagination total={Math.ceil((githubUsers.total_count / 24))} current={1} />
       </section>
       <Footer />
     </div>

@@ -20,12 +20,8 @@
     width: 100%;
   }
 
-  .card {
-    padding: 10px !important;
-  }
-
   .card img {
-    width: 40px;
+    width: 50px;
   }
 }
 
