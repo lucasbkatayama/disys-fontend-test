@@ -1,18 +1,20 @@
-import React, { memo } from 'react'
+import React, { memo, useMemo } from 'react'
+import { Spinner } from '../'
 import './search.css'
 
 type PropsType = {
-  ref: React.RefObject<HTMLInputElement>,
+  disabled: boolean,
+  searchRef: React.RefObject<HTMLInputElement>,
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
 const Search: React.FC<PropsType> = (props: PropsType) => {
-  const { onSubmit, ref } = props
+  const { onSubmit, searchRef, disabled } = props
 
   return (
     <form className='search' onSubmit={(e) => onSubmit(e)}>
-      <input ref={ref} type='search' placeholder='Enter Github User' />
-      <button>Search</button>
+      <input ref={searchRef} type='search' placeholder='Enter Github User' />
+      <button disabled={disabled}>{disabled ? <Spinner /> : 'Search'}</button>
     </form>
   )
 }

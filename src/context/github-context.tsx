@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react'
 import MOCK_USERS from './mock-data.json'
 
-export const GithubContext = React.createContext<GithubUser>({} as GithubUser)
+export const GithubContext = React.createContext<Context>({} as Context)
 
 interface Item {
   login: string
@@ -9,9 +9,18 @@ interface Item {
   html_url: string
 }
 
-export interface GithubUser {
+export interface GithubUsers {
   total_count: number
   items: Item[]
+}
+
+interface Context {
+  githubUsers: GithubUsers
+  setGithubUsers: React.Dispatch<React.SetStateAction<GithubUsers>>
+  setQuery: React.Dispatch<React.SetStateAction<string | undefined>>
+  query: string | undefined
+  page: number
+  setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 type PropsTypes = {
@@ -21,10 +30,12 @@ type PropsTypes = {
 const GithubProvider:React.FC<PropsTypes> = (props: PropsTypes) => {
   const { children } = props
 
-  const [githubUsers, setGithubUser] = useState<GithubUser>(MOCK_USERS)
+  const [githubUsers, setGithubUsers] = useState<GithubUsers>({} as GithubUsers)
+  const [query, setQuery] = useState<string | undefined>()
+  const [page, setPage] = useState<number>(1)
 
   return (
-    <GithubContext.Provider value={githubUsers}>
+    <GithubContext.Provider value={{githubUsers, setGithubUsers, setQuery, query, page, setPage}}>
       {children}
     </GithubContext.Provider>
   )

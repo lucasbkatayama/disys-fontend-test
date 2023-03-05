@@ -27,16 +27,19 @@
 .search button {
   border-radius: var(--radius);
   border-color: transparent;
-  padding: 0.25rem 0.5rem;
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   background: var(--clr-primary);
   color: var(--clr-white);
   transition: var(--transition);
   cursor: pointer;
+  width: 70px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search button:hover {
-  background: var(--clr-grey-light);
-  color: var(--clr-primary-1);
+  background: var(--clr-primary-light);
 }

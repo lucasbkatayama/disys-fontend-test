@@ -14,7 +14,7 @@ const Card: React.FC<PropsType> = (props: PropsType) => {
   return (
     <div className='card-container'>
       <div className='card'>
-        <img width={80} src={avatar_url} alt='profile' />
+        <img loading='lazy' width={80} src={avatar_url} alt='profile' />
         <div className='card-text'>
           <p>{login}</p>
           <a target='_blank' rel='noreferrer' href={html_url}><FaLink /> {html_url}</a>
