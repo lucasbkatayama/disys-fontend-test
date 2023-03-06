@@ -5,7 +5,7 @@ Simple application that allows you to search and view data from Github users usi
 
 The application was developed for the FrontEnd selection process of the company Digital Intelligence Systems.
 
-## Arquitetura
+## Architecture
 
 The architecture was based on the principles of SOLID and clean architecture. Containing 5 main layers:
 - presentation (code that reflects in the visual interface, React is here)
@@ -14,7 +14,7 @@ The architecture was based on the principles of SOLID and clean architecture. Co
 - infra (dependency inversion of external libraries)
 - main (starting point of the application and declaration and connection between the layers)
 
-## Rodando a aplicação
+## Running the application
 
 To run the application locally use the command:
 
@@ -26,7 +26,7 @@ To run the application locally use the command:
 
 
 
-## Rodando os testes
+## Running the tests
 
 To run the e2e tests, run the following command:
 
