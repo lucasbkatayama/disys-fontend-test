@@ -1,6 +1,6 @@
-import React, { memo, useMemo } from 'react'
-import { Spinner } from '../'
-import './search.css'
+import React, { memo } from 'react'
+import { Spinner } from '..'
+import './search-bar.css'
 
 type PropsType = {
   disabled: boolean,
@@ -8,7 +8,7 @@ type PropsType = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
-const Search: React.FC<PropsType> = (props: PropsType) => {
+const SearchBar: React.FC<PropsType> = (props: PropsType) => {
   const { onSubmit, searchRef, disabled } = props
 
   return (
@@ -19,4 +19,4 @@ const Search: React.FC<PropsType> = (props: PropsType) => {
   )
 }
 
-export default memo(Search)
+export default memo(SearchBar)

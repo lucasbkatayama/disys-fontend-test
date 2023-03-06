@@ -1,22 +1,11 @@
 import React, { ReactNode, useState } from 'react'
-import MOCK_USERS from './mock-data.json'
+import { SearchResponse } from '../../domain/usecases'
 
 export const GithubContext = React.createContext<Context>({} as Context)
 
-interface Item {
-  login: string
-  avatar_url: string
-  html_url: string
-}
-
-export interface GithubUsers {
-  total_count: number
-  items: Item[]
-}
-
 interface Context {
-  githubUsers: GithubUsers
-  setGithubUsers: React.Dispatch<React.SetStateAction<GithubUsers>>
+  searchResponse: SearchResponse
+  setSearchResponse: React.Dispatch<React.SetStateAction<SearchResponse>>
   setQuery: React.Dispatch<React.SetStateAction<string | undefined>>
   query: string | undefined
   page: number
@@ -30,12 +19,12 @@ type PropsTypes = {
 const GithubProvider:React.FC<PropsTypes> = (props: PropsTypes) => {
   const { children } = props
 
-  const [githubUsers, setGithubUsers] = useState<GithubUsers>({} as GithubUsers)
+  const [searchResponse, setSearchResponse] = useState<SearchResponse>({} as SearchResponse)
   const [query, setQuery] = useState<string | undefined>()
   const [page, setPage] = useState<number>(1)
 
   return (
-    <GithubContext.Provider value={{githubUsers, setGithubUsers, setQuery, query, page, setPage}}>
+    <GithubContext.Provider value={{searchResponse, setSearchResponse, setQuery, query, page, setPage}}>
       {children}
     </GithubContext.Provider>
   )
