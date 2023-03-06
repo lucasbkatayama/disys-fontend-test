@@ -13,6 +13,13 @@
   background: rgba(49, 49, 49, 0.8);
 }
 
+@media only screen and (max-width: 425px) {
+  .modal-content {
+    padding-top: 80px;
+    padding: 25px;
+  }
+}
+
 .modal-content {
   position: absolute;
   top: 40%;
@@ -20,15 +27,27 @@
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
+  padding: 50px;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 250px;
+  max-width: 550px;
 }
+
 
 .close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
 }

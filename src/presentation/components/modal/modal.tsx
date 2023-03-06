@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
-import "./Modal.css";
+import { FaTimes } from 'react-icons/fa'
+import "./modal.css";
 
 type Props = {
   open: boolean,
@@ -18,7 +19,7 @@ const Modal:React.FC<Props> = (props: Props) => {
           <div className="modal-content">
             {children}
             <button className="close-modal" onClick={onClickClose}>
-              CLOSE
+              <FaTimes />
             </button>
           </div>
         </div>
