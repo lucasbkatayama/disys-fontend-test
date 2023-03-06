@@ -1,6 +1,6 @@
 export class LimitRequestError extends Error {
   constructor () {
-    super('Limite de requisições da API atingido. Tente novamente em breve.')
+    super('API request limit reached. Try again soon.')
     this.name = 'LimitRequestError'
   }
 }

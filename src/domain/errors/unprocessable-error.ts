@@ -1,6 +1,6 @@
 export class UnprocessableError extends Error {
   constructor () {
-    super('Não foi possível processar as intruções. Tente novamente em breve.')
+    super('Unable to process instructions. Try again soon.')
     this.name = 'UnprocessableError'
   }
 }
