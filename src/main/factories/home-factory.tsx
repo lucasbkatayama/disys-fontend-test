@@ -1,13 +1,15 @@
 import React from 'react'
-import { GithubSearch } from '../../data/usecases/github-search'
+import { GithubGetUser, GithubSearch } from '../../data/usecases'
 import { AxiosAdapter } from '../../infra/axios-adapter/axios-adapter'
 import Home from '../../presentation/pages/home/home'
 
 const HomeFactory: React.FC = () => {
-  const search = new GithubSearch(new AxiosAdapter())
+  const axiosAdapter = new AxiosAdapter()
+  const search = new GithubSearch(axiosAdapter)
+  const getUser = new GithubGetUser(axiosAdapter)
 
   return (
-    <Home search={search} />
+    <Home search={search} getUser={getUser} />
   )
 }
 

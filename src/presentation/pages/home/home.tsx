@@ -1,22 +1,24 @@
 import { useRef, useContext, useState, useCallback, useEffect } from 'react'
 import { FaExclamationTriangle } from 'react-icons/fa'
-import './home.css'
-import { Header, SearchBar, Card, Pagination, Footer, Modal } from '../../components';
-import { GithubContext } from '../../context/github-context';
-import { Search } from '../../../domain/usecases';
-import UserCard from '../../components/user-card/user-card';
 import axios from 'axios';
 
+import './home.css'
+import { Header, SearchBar, Card, Pagination, Footer, Modal, UserCard } from '../../components';
+import { GithubContext } from '../../context/github-context';
+import { GetUser, Search } from '../../../domain/usecases';
+import { User } from '../../../domain/models';
+
 type Props = {
-  search: Search
+  search: Search,
+  getUser: GetUser
 }
 
-const Home:React.FC<Props> = ({ search }: Props) => {
+const Home:React.FC<Props> = ({ search, getUser }: Props) => {
   const searchRef = useRef<HTMLInputElement>(null);
   const { searchResponse, setSearchResponse, query, setQuery, page, setPage } = useContext(GithubContext)
   const [loading, setLoading] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<string>('')
-  const [user, setUser] = useState()
+  const [user, setUser] = useState<User>({} as User)
 
   useEffect(() => {
     if (loading || !query) return
@@ -50,9 +52,13 @@ const Home:React.FC<Props> = ({ search }: Props) => {
     setPage((prevState) => --prevState)
   }, [page])
 
-  const handleClickCard = async (userLogin: string) => {
-    const res = await axios.get(`https://api.github.com/users/${userLogin}`)
-    setUser(res.data)
+  const handleClickCard = async (user: string) => {
+    try {
+      const data = await getUser.get({ user })
+      setUser(data)
+    } catch (error) {
+      setErrorMessage(error.message)
+    }
   }
   
   return (
@@ -66,7 +72,7 @@ const Home:React.FC<Props> = ({ search }: Props) => {
         {searchResponse.items && <Pagination total={Math.ceil((searchResponse.total_count / 24))} current={page} onClickNext={handleClickNext} onClickPrevius={handleClickPrevius} />}
       </section>
       <Footer />
-      <Modal open={!!user} onClickClose={() => setUser(undefined)}>
+      <Modal open={!!user?.login} onClickClose={() => setUser({} as User)}>
         <UserCard {...user} />
       </Modal>
       <Modal open={!!errorMessage} onClickClose={() => setErrorMessage('')}>
